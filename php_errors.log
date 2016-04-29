@@ -1,0 +1,197 @@
+[27-Apr-2016 11:04:09 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/php/addpics.php on line 9
+[27-Apr-2016 11:04:15 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/php/addpics.php on line 9
+[27-Apr-2016 11:05:34 UTC] PHP Fatal error:  Using $this when not in object context in /home/ubuntu/workspace/php/addpics.php on line 7
+[27-Apr-2016 11:05:34 UTC] PHP Stack trace:
+[27-Apr-2016 11:05:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:16:44 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 3
+[27-Apr-2016 11:16:44 UTC] PHP Stack trace:
+[27-Apr-2016 11:16:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:21:13 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 3
+[27-Apr-2016 11:21:13 UTC] PHP Stack trace:
+[27-Apr-2016 11:21:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:23:20 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 3
+[27-Apr-2016 11:23:20 UTC] PHP Stack trace:
+[27-Apr-2016 11:23:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:23:50 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 3
+[27-Apr-2016 11:23:50 UTC] PHP Stack trace:
+[27-Apr-2016 11:23:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:24:59 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 3
+[27-Apr-2016 11:24:59 UTC] PHP Stack trace:
+[27-Apr-2016 11:24:59 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:26:41 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 3
+[27-Apr-2016 11:26:41 UTC] PHP Stack trace:
+[27-Apr-2016 11:26:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:40:22 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:40:22 UTC] PHP Stack trace:
+[27-Apr-2016 11:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:40:58 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:40:58 UTC] PHP Stack trace:
+[27-Apr-2016 11:40:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:41:22 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:41:22 UTC] PHP Stack trace:
+[27-Apr-2016 11:41:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:41:23 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:41:23 UTC] PHP Stack trace:
+[27-Apr-2016 11:41:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:41:35 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:41:35 UTC] PHP Stack trace:
+[27-Apr-2016 11:41:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:42:37 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:42:37 UTC] PHP Stack trace:
+[27-Apr-2016 11:42:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:42:44 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:42:44 UTC] PHP Stack trace:
+[27-Apr-2016 11:42:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:42:55 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:42:55 UTC] PHP Stack trace:
+[27-Apr-2016 11:42:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:44:07 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:44:07 UTC] PHP Stack trace:
+[27-Apr-2016 11:44:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:44:16 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:44:16 UTC] PHP Stack trace:
+[27-Apr-2016 11:44:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:44:18 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:44:18 UTC] PHP Stack trace:
+[27-Apr-2016 11:44:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:44:27 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:44:27 UTC] PHP Stack trace:
+[27-Apr-2016 11:44:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:44:39 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:44:39 UTC] PHP Stack trace:
+[27-Apr-2016 11:44:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:44:41 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:44:41 UTC] PHP Stack trace:
+[27-Apr-2016 11:44:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:47:47 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:47:47 UTC] PHP Stack trace:
+[27-Apr-2016 11:47:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:47:57 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:47:57 UTC] PHP Stack trace:
+[27-Apr-2016 11:47:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:48:37 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:48:37 UTC] PHP Stack trace:
+[27-Apr-2016 11:48:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:51:16 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:51:16 UTC] PHP Stack trace:
+[27-Apr-2016 11:51:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:51:27 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:51:27 UTC] PHP Stack trace:
+[27-Apr-2016 11:51:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:51:28 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:51:28 UTC] PHP Stack trace:
+[27-Apr-2016 11:51:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:52:07 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:52:07 UTC] PHP Stack trace:
+[27-Apr-2016 11:52:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:53:24 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:53:24 UTC] PHP Stack trace:
+[27-Apr-2016 11:53:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:53:25 UTC] PHP Fatal error:  Class 'Mongo' not found in /home/ubuntu/workspace/php/addpics.php on line 5
+[27-Apr-2016 11:53:25 UTC] PHP Stack trace:
+[27-Apr-2016 11:53:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:53:32 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 4
+[27-Apr-2016 11:53:32 UTC] PHP Stack trace:
+[27-Apr-2016 11:53:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[27-Apr-2016 11:53:42 UTC] PHP Fatal error:  Class 'MongoClient' not found in /home/ubuntu/workspace/php/addpics.php on line 4
+[27-Apr-2016 11:53:42 UTC] PHP Stack trace:
+[27-Apr-2016 11:53:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/addpics.php:0
+[28-Apr-2016 10:40:25 UTC] PHP Fatal error:  Uncaught exception 'MongoConnectionException' with message 'Failed to connect to: localhost:27017: Connection refused' in /home/ubuntu/workspace/php/addpics.php:4
+Stack trace:
+#0 /home/ubuntu/workspace/php/addpics.php(4): MongoClient->__construct()
+#1 {main}
+  thrown in /home/ubuntu/workspace/php/addpics.php on line 4
+[28-Apr-2016 11:20:45 UTC] PHP Fatal error:  Cannot use object of type MongoCursor as array in /home/ubuntu/workspace/php/index.php on line 14
+[28-Apr-2016 11:20:45 UTC] PHP Stack trace:
+[28-Apr-2016 11:20:45 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:23:40 UTC] PHP Fatal error:  Cannot use object of type MongoCursor as array in /home/ubuntu/workspace/php/index.php on line 14
+[28-Apr-2016 11:23:40 UTC] PHP Stack trace:
+[28-Apr-2016 11:23:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:27:12 UTC] PHP Warning:  array_values() expects parameter 1 to be array, object given in /home/ubuntu/workspace/php/index.php on line 14
+[28-Apr-2016 11:27:12 UTC] PHP Stack trace:
+[28-Apr-2016 11:27:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:27:12 UTC] PHP   2. array_values() /home/ubuntu/workspace/php/index.php:14
+[28-Apr-2016 11:28:36 UTC] PHP Warning:  reset() expects parameter 1 to be array, null given in /home/ubuntu/workspace/php/index.php on line 14
+[28-Apr-2016 11:28:36 UTC] PHP Stack trace:
+[28-Apr-2016 11:28:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:28:36 UTC] PHP   2. reset() /home/ubuntu/workspace/php/index.php:14
+[28-Apr-2016 11:34:29 UTC] PHP Fatal error:  Uncaught exception 'MongoException' with message 'zero-length keys are not allowed, did you use $ with double quotes?' in /home/ubuntu/workspace/php/index.php:15
+Stack trace:
+#0 [internal function]: MongoCursor->rewind()
+#1 /home/ubuntu/workspace/php/index.php(15): iterator_to_array(Object(MongoCursor))
+#2 {main}
+  thrown in /home/ubuntu/workspace/php/index.php on line 15
+[28-Apr-2016 11:35:11 UTC] PHP Fatal error:  Uncaught exception 'MongoException' with message 'zero-length keys are not allowed, did you use $ with double quotes?' in /home/ubuntu/workspace/php/index.php:15
+Stack trace:
+#0 [internal function]: MongoCursor->rewind()
+#1 /home/ubuntu/workspace/php/index.php(15): iterator_to_array(Object(MongoCursor))
+#2 {main}
+  thrown in /home/ubuntu/workspace/php/index.php on line 15
+[28-Apr-2016 11:35:42 UTC] PHP Fatal error:  Uncaught exception 'MongoException' with message 'zero-length keys are not allowed, did you use $ with double quotes?' in /home/ubuntu/workspace/php/index.php:15
+Stack trace:
+#0 [internal function]: MongoCursor->rewind()
+#1 /home/ubuntu/workspace/php/index.php(15): iterator_to_array(Object(MongoCursor))
+#2 {main}
+  thrown in /home/ubuntu/workspace/php/index.php on line 15
+[28-Apr-2016 11:35:58 UTC] PHP Catchable fatal error:  Argument 1 passed to iterator_to_array() must implement interface Traversable, null given in /home/ubuntu/workspace/php/index.php on line 15
+[28-Apr-2016 11:35:58 UTC] PHP Stack trace:
+[28-Apr-2016 11:35:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:36:12 UTC] PHP Warning:  key() expects parameter 1 to be array, null given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:36:12 UTC] PHP Stack trace:
+[28-Apr-2016 11:36:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:36:12 UTC] PHP   2. key() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:36:48 UTC] PHP Warning:  key() expects parameter 1 to be array, null given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:36:48 UTC] PHP Stack trace:
+[28-Apr-2016 11:36:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:36:48 UTC] PHP   2. key() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:36:49 UTC] PHP Warning:  key() expects parameter 1 to be array, null given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:36:49 UTC] PHP Stack trace:
+[28-Apr-2016 11:36:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:36:49 UTC] PHP   2. key() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:36:57 UTC] PHP Warning:  key() expects parameter 1 to be array, null given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:36:57 UTC] PHP Stack trace:
+[28-Apr-2016 11:36:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:36:57 UTC] PHP   2. key() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:37:59 UTC] PHP Warning:  key() expects parameter 1 to be array, string given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:37:59 UTC] PHP Stack trace:
+[28-Apr-2016 11:37:59 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:37:59 UTC] PHP   2. key() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:38:33 UTC] PHP Warning:  key() expects parameter 1 to be array, string given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:38:33 UTC] PHP Stack trace:
+[28-Apr-2016 11:38:33 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:38:33 UTC] PHP   2. key() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:39:29 UTC] PHP Warning:  reset() expects parameter 1 to be array, string given in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:39:29 UTC] PHP Stack trace:
+[28-Apr-2016 11:39:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:39:29 UTC] PHP   2. reset() /home/ubuntu/workspace/php/index.php:16
+[28-Apr-2016 11:41:16 UTC] PHP Fatal error:  Cannot use object of type MongoCursor as array in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:41:16 UTC] PHP Stack trace:
+[28-Apr-2016 11:41:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:41:34 UTC] PHP Fatal error:  Cannot use object of type MongoCursor as array in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:41:34 UTC] PHP Stack trace:
+[28-Apr-2016 11:41:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:43:36 UTC] PHP Fatal error:  Cannot use object of type MongoCursor as array in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:43:36 UTC] PHP Stack trace:
+[28-Apr-2016 11:43:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:44:43 UTC] PHP Fatal error:  Cannot use object of type MongoCursor as array in /home/ubuntu/workspace/php/index.php on line 16
+[28-Apr-2016 11:44:43 UTC] PHP Stack trace:
+[28-Apr-2016 11:44:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:45:01 UTC] PHP Warning:  array_values() expects parameter 1 to be array, object given in /home/ubuntu/workspace/php/index.php on line 17
+[28-Apr-2016 11:45:01 UTC] PHP Stack trace:
+[28-Apr-2016 11:45:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:45:01 UTC] PHP   2. array_values() /home/ubuntu/workspace/php/index.php:17
+[28-Apr-2016 11:45:21 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/php/index.php on line 17
+[28-Apr-2016 11:45:32 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/php/index.php on line 17
+[28-Apr-2016 11:45:54 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/php/index.php on line 17
+[28-Apr-2016 11:46:19 UTC] PHP Warning:  array_values() expects parameter 1 to be array, string given in /home/ubuntu/workspace/php/index.php on line 17
+[28-Apr-2016 11:46:19 UTC] PHP Stack trace:
+[28-Apr-2016 11:46:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[28-Apr-2016 11:46:19 UTC] PHP   2. array_values() /home/ubuntu/workspace/php/index.php:17
+[28-Apr-2016 12:11:33 UTC] PHP Fatal error:  Call to a member function close() on a non-object in /home/ubuntu/workspace/php/index.php on line 129
+[28-Apr-2016 12:11:33 UTC] PHP Stack trace:
+[28-Apr-2016 12:11:33 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index.php:0
+[29-Apr-2016 06:31:01 UTC] PHP Fatal error:  Uncaught exception 'MongoConnectionException' with message 'Failed to connect to: localhost:27017: Connection refused' in /home/ubuntu/workspace/php/index.php:5
+Stack trace:
+#0 /home/ubuntu/workspace/php/index.php(5): MongoClient->__construct()
+#1 {main}
+  thrown in /home/ubuntu/workspace/php/index.php on line 5
