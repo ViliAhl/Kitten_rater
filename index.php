@@ -51,23 +51,56 @@ function createDB(){
 # ------------------------------
 # These are mock implementations
 
-	/*function postCat($parameters) {
-		# implements POST method for person
-		# Example: POST /staffapi/person/id=13&firstname="John"&lastname="Doe"
-		$firstname=urldecode($parameters["firstname"]);
-		$lastname=urldecode($parameters["lastname"]);
-		echo "Posted ".$parameters["id"]." ".$firstname." ".$lastname;
-	}*/
+	function postComment($parameters) {
+		# implements POST method for comment
+		# Example: POST /kitten_rater/cat/comment/?id=13&comment=lol
+		$cat_id = (int) urldecode($parameters["id"]);
+		$comment =urldecode($parameters["comment"]);
+		$collection = createDB();
+		$newcomment = array('$push' => array('comments' => $comment));
+		$collection->update(array("ID" => $cat_id), $newcomment);
 
-	function getCats() {
+		
+		
+		
+	}
+	function postStar($parameters) {
+		# implements POST method for stars
+		# Example: POST /kitten_rater/cat/star/?id=13&star=3
+		$cat_id = (int) urldecode($parameters["id"]);
+		$star =(int) urldecode($parameters["star"]);
+		$collection = createDB();
+		
+		$newstar = array('$inc' => array('stars' => $star));
+		$collection->update(array("id" => $cat_id), $newstar);
+		
+		$newrating = array('$inc' => array('rates' => 1));
+		$collection->update(array("id" => $cat_id), $newrating);
+
+	}
+	
+	
+
+	/*function getCats() {
 		# implements GET method for persons (collection)
 		# Example: GET /staffapi/persons
 		echo "Getting list of persons";
+	}*/
+	
+	function getCat($parameters) {
+	    # implements GET method for cat
+		# Example: GET /kitten_rater/cat/?id=13
+		
+	    $cat_id = (int) urldecode($parameters["id"]);
+
+		$collection = createDB();
+		$cat = $collection->findOne(array('ID' => $cat_id),array("_id"=>0));
+		echo json_encode($cat);
 	}
 
-	function getCat() {
-		# implements GET method for person 
-		# Example: GET /staffapi/person/13
+	function getNewCat() {
+		# implements GET method for cat
+		# Example: GET /kitten_rater/newcat/
 		//if (!empty($_GET['action'])){
 		$collection = createDB();
 		$cursor = $collection->find()->sort(array("ID"=>-1));
@@ -89,9 +122,11 @@ function createDB(){
 	}
 
 	function deleteCat($id) {
-		# implements DELETE method for person 
-		# Example: DELETE /staffapi/person/13
-		echo "Deleting person: ".$id;
+		# implements DELETE method for cat
+		# Example: DELETE /kitten_rater/cat/13
+		$collection = createDB();
+		  $collection->remove(array("ID"=>$id),false);
+
 	}
 
 # Main
@@ -103,18 +138,21 @@ function createDB(){
 
     # Redirect to appropriate handlers.
 	if ($resource[0]=="kitten_rater") {
-    	if ($request_method=="POST" && $resource[1]=="person") {
-        	postPerson($parameters);
+    	if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="comment") {
+        	postComment($parameters);
     	}
-		else if ($request_method=="GET" && $resource[1]=="persons") {
-			getPersons();
-		} 
-		else if ($request_method=="GET" && $resource[1]=="cat") {
-			getCat();
+    	else if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="star") {
+        	postStar($parameters);
+    	}
+    	else if ($request_method=="GET" && $resource[1]=="cat") {
+    	    getCat($parameters);
+    	}
+		else if ($request_method=="GET" && $resource[1]=="newcat") {
+			getNewCat();
 		}
-		else if ($request_method=="DELETE" && $resource[1]=="person") {
-			deletePerson($resource[2]);
-		}
+		/*else if ($request_method=="DELETE" && $resource[1]=="cat") {
+			deleteCat($resource[2]);
+		}*/
 		else {
 			http_response_code(405); # Method not allowed
 		}
