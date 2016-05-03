@@ -1,19 +1,31 @@
 window.onload = lataus;
-
+var cat;
 
 	function lataus(){
     document.getElementById('everything').style.display = 'none';
 	document.getElementById('commentfield').style.display = '';
 	document.getElementById('ratingfield').style.display = 'none';
 	
+	document.getElementById("star-5").addEventListener("click", function() {arvostele("5");});
+	document.getElementById("star-4").addEventListener("click", function() {arvostele("4");});
+	document.getElementById("star-3").addEventListener("click", function() {arvostele("3");});
+	document.getElementById("star-2").addEventListener("click", function() {arvostele("2");});
+	document.getElementById("star-1").addEventListener("click", function() {arvostele("1");});
 	
 	
 	
-	ajaxFunction("newcat");
+	ajaxFunction("newcat", "GET");
+	
 
 }
 
-function ajaxFunction(str){
+//EEBENPUU
+var element = document.getElementById("catimage");
+var mc = Hammer(element).on("panleft", function() {
+    location.reload();
+}); 
+
+function ajaxFunction(str, method){
 	var ajaxRequest;  // The variable that makes Ajax possible!
 	var url = "https://kitten-rater-vilperi.c9users.io/kitten_rater/" + str;
 	
@@ -38,19 +50,26 @@ function ajaxFunction(str){
 	ajaxRequest.onreadystatechange = function(){
 		if(ajaxRequest.readyState == 4){
 			
-			alert(ajaxRequest.status);
+			
 			
 			
 			if (ajaxRequest.status === 200) {
-			alert(ajaxRequest.responseText);
+				cat = JSON.parse(ajaxRequest.responseText);
+				if (str == "newcat"){
+					//users.metropolia is BECAUSE THIS FUCKING CLOUD9 CAN'T DOWNLOAD ALL MY CAT PICS FROM LOCALFILES
+					document.getElementById('catimage').src = ("http://users.metropolia.fi/~eetukah/Cats/" + cat.ID + ".jpg");
+				}
+				
+		
           		
         	} else {
         		
           		alert(ajaxRequest.status);
+          		
         }	
       }
 	}
-	ajaxRequest.open("GET", url, true);
+	ajaxRequest.open(method, url, true);
 	ajaxRequest.send(); 
 }
 
@@ -63,15 +82,24 @@ function ajaxFunction(str){
     document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	document.getElementById('commentfield').style.display = 'none';
 	document.getElementById('ratingfield').style.display = '';
+    document.getElementById('ratingfield').innerHTML = cat.stars + " " + cat.rates;
+    
 };
-
+	//Mikä tää on?
     document.querySelector('input-1').onclick = function(){
     document.getElementById('everything').style.display = '';  
 };
 
+	
+
+
 function arvostele(a){
-    document.getElementById('everything').style.display = '';
+	 document.getElementById('everything').style.display = '';
     // tähän jotain joka käyttää a parametriä ratingin lähetykseen
+    //siinäpä ois:
+    ajaxFunction("cat/star/?id="+ cat.ID +"&star="+a,"POST");
+    ajaxFunction("cat/?id="+cat.ID, "GET");
+    
 }
 
 

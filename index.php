@@ -59,7 +59,7 @@ function createDB(){
 		$collection = createDB();
 		$newcomment = array('$push' => array('comments' => $comment));
 		$collection->update(array("ID" => $cat_id), $newcomment);
-
+		
 		
 		
 		
@@ -72,10 +72,11 @@ function createDB(){
 		$collection = createDB();
 		
 		$newstar = array('$inc' => array('stars' => $star));
-		$collection->update(array("id" => $cat_id), $newstar);
+		$collection->update(array("ID" => $cat_id), $newstar);
 		
 		$newrating = array('$inc' => array('rates' => 1));
-		$collection->update(array("id" => $cat_id), $newrating);
+		$collection->update(array("ID" => $cat_id), $newrating);
+	
 
 	}
 	
