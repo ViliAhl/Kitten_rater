@@ -51,24 +51,51 @@ function createDB(){
 # ------------------------------
 # These are mock implementations
 
-	function postComment($parameters) {
+	function postComment() {
 		# implements POST method for comment
 		# Example: POST /kitten_rater/cat/comment/?id=13&comment=lol
-		$cat_id = (int) urldecode($parameters["id"]);
-		$comment =urldecode($parameters["comment"]);
+		$cat_id = (int) $_POST["id"];
+		$string =$_POST["comment"];
+		$string2 =$_POST["nick"];
+		$comment = (string) strip_tags($string);
+		$nick = (string) strip_tags($string2);
+		//$comment=mysql_real_escape_string($comment);
+		
+		
 		$collection = createDB();
-		$newcomment = array('$push' => array('comments' => $comment));
+		$newcomment = array('$push' => array('comments' => array('nick'=> $nick, 'comment' => $comment)));
 		$collection->update(array("ID" => $cat_id), $newcomment);
 		
 		
 		
 		
 	}
-	function postStar($parameters) {
+	
+	function postName() {
+		# implements POST method for comment
+		# Example: POST /kitten_rater/cat/name/?id=13&name=Teppo
+		$cat_id = (int) $_POST["id"];
+		
+		
+		//$comment=mysql_real_escape_string($comment);
+		
+		
+		$collection = createDB();
+		$newname = array('$push' => array('name' => $name));
+		$collection->update(array("ID" => $cat_id), $newname);
+		
+		
+		
+		
+	}
+	
+	
+	function postStar() {
 		# implements POST method for stars
 		# Example: POST /kitten_rater/cat/star/?id=13&star=3
-		$cat_id = (int) urldecode($parameters["id"]);
-		$star =(int) urldecode($parameters["star"]);
+		
+		$cat_id = (int) $_POST["id"];
+		$star = (int) $_POST["star"];
 		$collection = createDB();
 		
 		$newstar = array('$inc' => array('stars' => $star));
@@ -79,20 +106,17 @@ function createDB(){
 	
 
 	}
-	
-	
-
 	/*function getCats() {
 		# implements GET method for persons (collection)
 		# Example: GET /staffapi/persons
 		echo "Getting list of persons";
 	}*/
 	
-	function getCat($parameters) {
+	function getCat() {
 	    # implements GET method for cat
 		# Example: GET /kitten_rater/cat/?id=13
-		
-	    $cat_id = (int) urldecode($parameters["id"]);
+		$cat_id = (int) $_GET["id"];
+	    //$cat_id = (int) urldecode($parameters["id"]);
 
 		$collection = createDB();
 		$cat = $collection->findOne(array('ID' => $cat_id),array("_id"=>0));
@@ -135,18 +159,23 @@ function createDB(){
 
 	$resource = getResource();
     $request_method = getMethod();
-    $parameters = getParameters();
+    //$parameters = getParameters();
 
     # Redirect to appropriate handlers.
 	if ($resource[0]=="kitten_rater") {
     	if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="comment") {
-        	postComment($parameters);
+        	postComment();
+    	}else if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="star") {
+        	postStar();
     	}
-    	else if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="star") {
-        	postStar($parameters);
+    	else if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="img") {
+        	postImg();
+    	}
+    	else if ($request_method=="POST" && $resource[1]=="cat" && $resource[2]=="name") {
+        	postName();
     	}
     	else if ($request_method=="GET" && $resource[1]=="cat") {
-    	    getCat($parameters);
+    	    getCat();
     	}
 		else if ($request_method=="GET" && $resource[1]=="newcat") {
 			getNewCat();

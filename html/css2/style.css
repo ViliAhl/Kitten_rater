@@ -1,39 +1,90 @@
 body {
     text-align: center;
-    background-color: #FCF2F2;
+    background-color: #FFCCCC;
 }
 
 h1 {
-   color: red;
-   margin: 1em;
+   color: #FF5E5E;
+   font-family:Arial,  Verdana, Sans-serif;
+   font-size: 3em;
+   margin-bottom: 0em;
    text-align: center;
    font-variant: small-caps;
+}
+
+hr {
+    color: #FD7171;
+    background-color: #FD7171;
+    height: 1px;
+    width: 40%;
 }
 
 #everything {
     width: 600px;
     margin: auto;
     margin-bottom: 50px;
-    background-color: white;
 }
 
-#ratingfield {
-    margin: 10px;
-    min-height: 150px;
+.tab-content {
+	max-width: 600px;
 }
 
-#commentfield {
-    margin: 10px;
-    min-height: 150px;
+#myTab {
+	border-color:#EB7213;
+	max-width: 600px;
+	
 }
+
+#myTab li a {
+	color: #FFCCCC;
+	border-color: #EB7213;
+	background-color:#FF5E5E;
+}
+
+#myTab li.active a {
+	color: #651D1D;
+	border-bottom-color: transparent;
+	background-color:#FFAEAE;
+	}
+	
+.my-tab .tab-pane {
+	border:solid 1px #EB7213;
+	border-top: 0;
+	background-color:#FFAEAE;
+}
+#row {
+	max-width: 500px !important;
+}
+
+fieldset {
+	margin: 20px;	
+	text-align: left;	
+}
+
+p {
+	margin: 20px;
+	text-align: left;
+}
+
 
 #catimage {
-    max-width: 500px;
+    width: 400px;
+    max-height: 500px;
     margin-left: auto;
     margin-right: auto;
-    padding:1px;
-    border:1px solid #021a40;
+    border: 1px solid #D15555;
     
+}
+
+#addcat {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    width: 100px;
+}
+
+.navbar{ 
+    background-image: none;
 }
 
 div.stars {
@@ -47,7 +98,7 @@ label.star {
   float: right;
   padding: 10px;
   font-size: 36px;
-  color: #444;
+  color: #FF8484;
   transition: all .2s;
 }
 
@@ -70,3 +121,4 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
+
