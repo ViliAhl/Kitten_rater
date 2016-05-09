@@ -1,10 +1,18 @@
 body {
     text-align: center;
-    background-color: #FFCCCC;
+    background-color: #FF8484;
+}
+
+.container2 {
+    background-color: #FFD7D7 !important;
+    width: 70%;
+    margin-top: 20px;
+    border: 1px dashed deeppink;
+    margin-bottom: 50px;
 }
 
 h1 {
-   color: #FF5E5E;
+   color: #CE6868 !important;
    font-family:Arial,  Verdana, Sans-serif;
    font-size: 3em;
    margin-bottom: 0em;
@@ -19,41 +27,43 @@ hr {
     width: 40%;
 }
 
+#valiviiva {
+    margin-top: -10px;
+    color: #FD7171;
+    background-color: #FD7171;
+    height: 1px;
+    width: 80%;
+}
+
 #everything {
-    width: 600px;
+    width: 80%;
     margin: auto;
     margin-bottom: 50px;
 }
 
 .tab-content {
-	max-width: 600px;
 }
 
 #myTab {
-	border-color:#EB7213;
-	max-width: 600px;
-	
+	border-color:#CE6868;
 }
 
 #myTab li a {
 	color: #FFCCCC;
-	border-color: #EB7213;
-	background-color:#FF5E5E;
+	border-color: #CE6868;
+	background-color:#CE6868;
 }
 
 #myTab li.active a {
-	color: #651D1D;
+	color: #8A4A4A;
 	border-bottom-color: transparent;
-	background-color:#FFAEAE;
+	background-color:#FFBEBE;
 	}
 	
 .my-tab .tab-pane {
-	border:solid 1px #EB7213;
+	border:solid 1px #CE6868;
 	border-top: 0;
-	background-color:#FFAEAE;
-}
-#row {
-	max-width: 500px !important;
+	background-color:#FFBEBE;
 }
 
 fieldset {
@@ -62,10 +72,32 @@ fieldset {
 }
 
 p {
+    color: #8A4A4A;
 	margin: 20px;
 	text-align: left;
 }
 
+.nickinput {
+    max-width: 20%;
+}
+.commentinput {
+    max-width: 50%;
+}
+
+#comments {
+    margin: 20px;
+    color: #8A4A4A;
+}
+
+#ratingfield {
+    margin: 20px;
+    margin-bottom: 50px;
+    color: #8A4A4A;
+}
+
+#arvosana {
+    min-height: inherit;
+}
 
 #catimage {
     width: 400px;
@@ -88,7 +120,6 @@ p {
 }
 
 div.stars {
-  width: 270px;
   display: inline-block;
 }
 
@@ -97,7 +128,7 @@ input.star { display: none; }
 label.star {
   float: right;
   padding: 10px;
-  font-size: 36px;
+  font-size: 3vw;
   color: #FF8484;
   transition: all .2s;
 }

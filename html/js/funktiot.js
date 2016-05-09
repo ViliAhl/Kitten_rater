@@ -38,11 +38,32 @@ function swipeload(){
 	$("input:radio").attr("checked", false);
 }
 //EEBENPUU
-window.onkeypress = function(event) {
+/*window.onkeypress = function(event) {
    if (event.keyCode == 97 || event.keyCode == 100) {
      swipeload();
    }
-}
+}*/
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        swipeload();
+        break;
+
+        case 38: // up
+        break;
+
+        case 39: // right
+        swipeload();
+        break;
+
+        case 40: // down
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
 
 var element = document.getElementById("catimage");
 var mc = Hammer(element).on("swipeleft", function() {
@@ -94,7 +115,7 @@ function getNewCat() {
 function parseComments(kitty){
 	var row, rows;
 	if (kitty.comments === undefined) {
-		document.getElementById("comments").innerHTML = "No any comments yet. Be the first one!";
+		document.getElementById("comments").innerHTML = "No comments yet. Be the first one!";
 	}
 	else {
 		

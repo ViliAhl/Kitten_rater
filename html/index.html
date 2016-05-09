@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>THE PUSSY RATER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
          <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css2/style.css">
@@ -21,11 +22,11 @@
     </head>
 <body>
 
-<h1 id="otsikko">The Pussy Rater</h1>
-<hr>
 
-<div class="container">
-    
+
+<div class="container container2">
+   <h1>The Pussy Rater</h1>
+<hr> 
 <p>
 <img class="img-responsive" id="catimage"/>
 </p>
@@ -35,25 +36,27 @@
 
 <div id="tahti" class="stars">
   <form action="">
-    <input class="star star-5" id="star-5" type="radio" name="star"/>
-    <label class="star star-5" for="star-5"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star" />
-    <label class="star star-4" for="star-4"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star" />
-    <label class="star star-3" for="star-3"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star" />
-    <label class="star star-2" for="star-2"></label>
-    <input class="star star-1" id="star-1" type="radio" name="star"/>
-    <label class="star star-1" for="star-1"></label>
+    <input class="star star-5 img-responsive" id="star-5" type="radio" name="star"/>
+    <label class="star star-5 img-responsive" for="star-5"></label>
+    <input class="star star-4 img-responsive" id="star-4" type="radio" name="star" />
+    <label class="star star-4 img-responsive" for="star-4"></label>
+    <input class="star star-3 img-responsive" id="star-3" type="radio" name="star" />
+    <label class="star star-3 img-responsive" for="star-3"></label>
+    <input class="star star-2 img-responsive" id="star-2" type="radio" name="star" />
+    <label class="star star-2 img-responsive" for="star-2"></label>
+    <input class="star star-1 img-responsive" id="star-1" type="radio" name="star"/>
+    <label class="star star-1 img-responsive" for="star-1"></label>
   </form>
 </div>
-</div>
-<!--EI SKAALAUDU. ONKO MAHDOLLISTA SAADA SKAALAUTUU?-->
-<div id="everything">
-    <div class="container">
+
+<!--EI SKAALAUDU. ONKO MAHDOLLISTA SAADA SKAALAUTUU?
+HYVÄ KYSYMYS, VIELÄ EN OO LÖYTÄNY SYYTÄ MIKSEI..
+Nyt pitäis skaalautua. Paitsi toi kommenttikenttä. Mutta en saa tota helvetin taulua keskelle, saatana! Menee hermo. :p
+Kommentti 12498735: Nyt pitäis koko paskan toimia. Ehkä. Loppuu akku, meen nukkumaan ennen kuin lentää koko kone ikkunasta.. -->
+<div id="everything" role="navigation">
         <div class="row">
-            <div class="col-md-8">
-                <ul class="nav nav-tabs" id="myTab">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" data-tabs="tabs" id="myTab">
                     <li class="active"><a href="#kommentit" data-toggle="tab">Comments</a></li>
                     <li><a href="#arvosana" data-toggle="tab">Rating</a></li>
                 </ul>
@@ -63,12 +66,14 @@
                             <div class="col-md-12">
                                 <div id="commentfield">
 									<fieldset>
-										<input type="text" placeholder="Nick" id="nimi" size="15">
-										<input type="text" id="kommentti" placeholder="Comment" size="45">
+										<input type="text" class="nickinput" placeholder="Nick" id="nimi" size="15">
+										<input type="text" class="commentinput" id="kommentti" placeholder="Comment" size="45">
 										<input type="submit" id="comment" value="Send"/><br><br>
 									</fieldset>
 									
-									<!--VOIKS TÄHÄ SAAHA MARGINIA?::)-->
+									<!--VOIKS TÄHÄ SAAHA MARGINIA?::)
+									Ehkä? Helvetin ruma vielä, mutta josko vaikka maanantaina sais nätimmäks.. -->
+									<hr id="valiviiva">
 									<div id="comments" align="left">
 										<p>Plz work</p>
 									</div>
@@ -90,7 +95,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="addcat">
 <label class="btn btn-danger" for="upload"><input type="file" id="upload" style="display:none" onchange="previewFile()">
