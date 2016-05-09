@@ -47,6 +47,7 @@ function swipeload(){
 $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left
+        if()
         swipeload();
         break;
 
