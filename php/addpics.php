@@ -7,6 +7,7 @@ $m = new MongoClient();
    $db = $m->kitten_rater;
    echo "Database kitten_rater selected";
    $collection = $db->Kissat;
+   $collection->drop();
    echo "Collection selected succsessfully";
    $cursor = $collection->find();
 
@@ -16,8 +17,9 @@ $m = new MongoClient();
     		
 		}	
 	
-   
-/*   
+  
+
+
 $i = 1;
 if ($handle = opendir('../Cats')) {
     while (false !== ($entry = readdir($handle))) {
@@ -31,7 +33,7 @@ if ($handle = opendir('../Cats')) {
         }
     }
     closedir($handle);
-}*/
+}
 $m->close();
 
 ?>

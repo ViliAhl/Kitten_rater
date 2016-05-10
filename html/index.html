@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>THE PUSSY RATER</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
          <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css2/style.css">
@@ -12,9 +11,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
+<!-- Swiping -->
 <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-
-
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -22,57 +20,50 @@
     </head>
 <body>
 
-
-
-<div class="container container2">
-   <h1>The Pussy Rater</h1>
-<hr> 
-<p>
-<img class="img-responsive" id="catimage"/>
-</p>
-
-
-<hr>
-
-<div id="tahti" class="stars">
-  <form action="">
-    <input class="star star-5" id="star-5" type="radio" name="star"/>
-    <label class="star star-5" for="star-5"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star" />
-    <label class="star star-4" for="star-4"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star" />
-    <label class="star star-3" for="star-3"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star" />
-    <label class="star star-2" for="star-2"></label>
-    <input class="star star-1" id="star-1" type="radio" name="star"/>
-    <label class="star star-1" for="star-1"></label>
-  </form>
-</div>
-
-<!--EI SKAALAUDU. ONKO MAHDOLLISTA SAADA SKAALAUTUU?
-HYVÄ KYSYMYS, VIELÄ EN OO LÖYTÄNY SYYTÄ MIKSEI..
-Nyt pitäis skaalautua. Paitsi toi kommenttikenttä. Mutta en saa tota helvetin taulua keskelle, saatana! Menee hermo. :p
-Kommentti 12498735: Nyt pitäis koko paskan toimia. Ehkä. Loppuu akku, meen nukkumaan ennen kuin lentää koko kone ikkunasta.. -->
-<div id="everything" role="navigation">
+<!-- Bootstrap container: sivuston sisalto -->
+<div class="container" id="container">
+    <h1>The Pussy Rater</h1>
+    <hr>
+    <!-- Kissakuva, vaihtuu javascriptilla -->
+    <p>
+        <img class="img-responsive" id="catimage"/>
+    </p>
+    <hr>
+    <!-- Arvostelutahdet -->
+    <div id="tahti" class="stars">
+        <form action="">
+        <input class="star star-5" id="star-5" type="radio" name="star"/>
+        <label class="star star-5" for="star-5"></label>
+        <input class="star star-4" id="star-4" type="radio" name="star" />
+        <label class="star star-4" for="star-4"></label>
+        <input class="star star-3" id="star-3" type="radio" name="star" />
+        <label class="star star-3" for="star-3"></label>
+        <input class="star star-2" id="star-2" type="radio" name="star" />
+        <label class="star star-2" for="star-2"></label>
+        <input class="star star-1" id="star-1" type="radio" name="star"/>
+        <label class="star star-1" for="star-1"></label>
+        </form>
+    </div>
+    <!-- Navigaatio kommenttien ja arvosteluiden valilla -->
+    <div id="everything" role="navigation">
         <div class="row">
             <div class="col-md-12">
+                <!-- Navin linkit -->
                 <ul class="nav nav-tabs" data-tabs="tabs" id="myTab">
                     <li class="active"><a href="#kommentit" data-toggle="tab">Comments</a></li>
                     <li><a href="#arvosana" data-toggle="tab">Rating</a></li>
                 </ul>
                 <div class="tab-content my-tab">
+                    <!-- Kommenttikenttä -->
                     <div class="tab-pane active" id="kommentit">
                         <div class="row">
                             <div class="col-md-12">
                                 <div id="commentfield">
 									<fieldset>
-										<input type="text" class="nickinput" placeholder="Nick" id="nimi" size="15">
-										<input type="text" class="commentinput" id="kommentti" placeholder="Comment" size="45">
-										<input type="submit" id="comment" value="Send"/><br><br>
+										<input type="text" class="nickinput" placeholder="Nick" id="nimi"  size="15">
+										<input type="text" class="commentinput" id="kommentti"  placeholder="Comment" size="45">
+										<input type="submit" id="comment" value="Send"/>
 									</fieldset>
-									
-									<!--VOIKS TÄHÄ SAAHA MARGINIA?::)
-									Ehkä? Helvetin ruma vielä, mutta josko vaikka maanantaina sais nätimmäks..-->
 									<hr id="valiviiva">
 									<div id="comments" align="left">
 										<p>Plz work</p>
@@ -81,12 +72,13 @@ Kommentti 12498735: Nyt pitäis koko paskan toimia. Ehkä. Loppuu akku, meen nuk
                             </div>
                         </div>
                     </div>
+                    <!-- Arvostelukentta -->
 					<div class="tab-pane" id="arvosana">
 						<div class="row">
 						    <div class="col-md-12">
 								<div id="ratingfield">
 									<p>This is a rating.</p>
-							</div>
+							    </div>
 							</div>
                         </div>
                     </div>
@@ -94,11 +86,21 @@ Kommentti 12498735: Nyt pitäis koko paskan toimia. Ehkä. Loppuu akku, meen nuk
             </div>
         </div>
     </div>
+
+    <div id="swipetext">
+        Use arrow keys or swipe left to get the next picture!
+    </div>
+</div> <!-- Container paattyy -->
+
+<!-- Submit-button-->
+<div id="addcat">
+    <label class="btn btn-danger" for="upload"><input type="file" id="upload" style="display:none" onchange="previewFile()">
+    Submit</label>
 </div>
 
-<div id="addcat">
-<label class="btn btn-danger" for="upload"><input type="file" id="upload" style="display:none" onchange="previewFile()">
-Submit picZ</label>
+<div class="container" id="monthlypics">
+    <h3>This week's Special Pussies</h3>
+    <div id="bestPussies"></div>
 </div>
 
 </body>

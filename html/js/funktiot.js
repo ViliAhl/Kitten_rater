@@ -9,12 +9,21 @@ document.getElementById("star-2").addEventListener("click", function() {arvostel
 document.getElementById("star-1").addEventListener("click", function() {arvostele("1");});
 document.getElementById("comment").addEventListener("click", function() {comment();});
 document.getElementById("commentfield").addEventListener('keypress', function (e) {
+    //alert(document.getElementById("kommentti").value);
     var key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
+   if (document.getElementById("kommentti").value != "" && document.getElementById("nimi").value != ""){
       comment();
+    }else {
+        $("kommentti").prop('required',true);
+        $("nimi").prop('required',true);
+        document.getElementById("kommentti").title("Can't be empty");
+        document.getElementById("nimi").title("Can't be empty");
     }
+}
 });
-
+// Asetetaan elementit haluttuun tilaan sivu avattaessa tai uudelleen ladattaessa
+// Kutsutaan window.onloadissa
 function lataus(){
     document.getElementById('everything').style.display = 'none';
 	document.getElementById('commentfield').style.display = '';
@@ -22,7 +31,12 @@ function lataus(){
 	document.getElementById('kommentti').value = '';
 	document.getElementById('nimi').value = '';
 	getNewCat();
+	getBestCats();
 }
+// Asettaa sivun haluttuun tilaan käyttäjän pyyhkäistäessä
+// tai nuolinäppäimellä uuteen kuvaan siirtyessä
+// Asettaa arvostelutähdet nollaan, sekä kommentit/rating laatikon piiloon
+// Hakee uuden kissan
 function swipeload(){
 	$("#star-5").prop("disabled",false);
  	$("#star-4").prop("disabled",false);
@@ -38,34 +52,33 @@ function swipeload(){
 	$("input:radio").attr("checked", false);
 }
 //EEBENPUU
-/*window.onkeypress = function(event) {
-   if (event.keyCode == 97 || event.keyCode == 100) {
-     swipeload();
-   }
-}*/
 
+// Mahdollistaa kissojen selauksen vasemmalla ja oikealla nuolinäppäimellä
 $(document).keydown(function(e) {
     switch(e.which) {
-        case 37: // left
-        if()
-        swipeload();
-        break;
-
-        case 38: // up
+       case 37: // left
+     		if (!$("#nimi").is(':focus')){
+     		    if(!$("#kommentti").is(':focus')){
+     		        swipeload();
+     		    }
+    			
+			}
         break;
 
         case 39: // right
-        swipeload();
+        if (!$("#nimi").is(':focus')) {
+            if(!$("#kommentti").is(':focus')){
+     		        swipeload();
+            }
+        }
         break;
 
-        case 40: // down
-        break;
 
         default: return; // exit this handler for other keys
     }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
+   // e.preventDefault(); // prevent the default action (scroll / move caret)
 });
-
+// Pyyhkäisyn käyttö uuden kissakuvan lataamiseksi
 var element = document.getElementById("catimage");
 var mc = Hammer(element).on("swipeleft", function() {
     swipeload();
@@ -74,7 +87,8 @@ var mc = Hammer(element).on("swipeleft", function() {
 
 
 
-
+// Lähettää ajaxin avulla tiedon PHP:lle, joka hakee tiedon tietokannasta
+// Palauttaa kissan ID:n mukaan
 function getCatById() {
     $.ajax({
         type: 'GET',
@@ -84,7 +98,7 @@ function getCatById() {
         
         success: function(data){
           	cat = data;
-          	$("#ratingfield").html("The average rating for this cute pussy is: " + cat.stars / cat.rates + " stars!");
+          	$("#ratingfield").html("The average rating for this cute pussy is: " + cat.avg + " stars!");
 			//$("#comments").html(cat.comments);
 		//document.getElementById("comments").innerHTML = cat.comments;
 		//document.getElementById("comments").innerHTML = cat.comments;
@@ -93,6 +107,33 @@ function getCatById() {
         }
     });
 }
+
+function getBestCats() {
+    $.ajax({
+        type: 'GET',
+        url: rootURL + '/cats/',
+        dataType: "json",
+        data: {}, 
+        success: function(data){
+          	var cats = data;
+          	for(var i =0;i<cats.length;i++){
+          	    //SAA TEHDÄ KAUNIIMMAKSI
+          	    $("#bestPussies").append('<div id="'+i+'" class="col-lg-2"></div>');
+          	    $("#"+i).prepend('<img id="cat" src=../../Cats/' + cats[i].ID + '.jpg />');
+          	    $("#"+i).append("<p>"+cats[i].avg +"</p>")
+          	}
+
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert( textStatus);
+        }
+    });
+}
+/*$(".#cat").hover(function() {
+    
+});*/
+
+// Hakeetietokannasta satunnaisen uuden kissan
 function getNewCat() {
     $.ajax({
         type: 'GET',
@@ -106,13 +147,13 @@ function getNewCat() {
            	parseComments(cat);
            	
 
-           	$("#ratingfield").html("The average rating for this cute pussy is: " + cat.stars +" "+ cat.rates + " stars!");
-           	document.getElementById('ratingfield').innerHTML = "The average rating for this cute pussy is: " + cat.stars / cat.rates + " stars!";
+           	$("#ratingfield").html("The average rating for this cute pussy is: " + cat.avg + " stars!");
+           	document.getElementById('ratingfield').innerHTML = "The average rating for this cute pussy is: " + cat.avg + " stars!";
 			
         }
     });
 }
-
+// Hakee tietokannasta nimimerkin ja sillä annetun kommentin
 function parseComments(kitty){
 	var row, rows;
 	if (kitty.comments === undefined) {
@@ -122,20 +163,14 @@ function parseComments(kitty){
 		
 		rows ="";
 		for(var com in kitty.comments){
-		    /*row = "";
-		    for (var c in kitty.comments[com]){
-		        row = row + kitty.comments[com][c] + c;
-		        if (c==0){
-		        row =row + " says: "
-		        }
-		    }*/
-			   //rows = rows +row + ;
-		        rows = rows + kitty.comments[com].nick + " says: " + kitty.comments[com].comment + "<br>";
+		        rows = rows + kitty.comments[com].nick + " said: " + kitty.comments[com].comment + "<br>";
 		}
 		document.getElementById("comments").innerHTML = rows;
 	}
 	
 }
+// Tähtiä antaessa paljastaa käyttäjälle kommenttikentän
+// Hakee tiedot kissalle getCatById:n kautta
 function arvostele(a) {
  	 document.getElementById('everything').style.display = '';
  	$("#star-5").prop("disabled",true);
@@ -157,10 +192,10 @@ function arvostele(a) {
             alert( textStatus);
         }
     });
-     //document.getElementById('tahti').style.display = 'none';
-     
 }
+// Käyttäjän kirjoittama kommentti tallennetaan tietokantaan ja sille päivitetään tiedot
 function comment(){
+       if (document.getElementById("kommentti").value != "" && document.getElementById("nimi").value != ""){
 	var kom = document.getElementById('kommentti').value;
 	document.getElementById('kommentti').value = '';
 	var nimi = document.getElementById('nimi').value;
@@ -176,10 +211,16 @@ function comment(){
             alert( textStatus);
         }
 	}
-)};
+)}else {
+        $("kommentti").prop('required',true);
+        $("nimi").prop('required',true);
+        document.getElementById("kommentti").setCustomValidity("Can't be empty");
+        document.getElementById("nimi").setCustomValidity("Can't be empty");
+    }
+};
 	
 
-
+// Ajaxilla lähetetään käyttäjän lisäämä kuva tietokantaan
 function appendToBackend(data){
 	$.ajax({
 		type: 'POST',
@@ -194,6 +235,7 @@ function appendToBackend(data){
 
 
 
+// Kommentti- ja ratingkenttien näykyvyys ja liikkuminen niiden välillä.
 
     document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	document.getElementById('commentfield').style.display = '';
@@ -204,8 +246,9 @@ function appendToBackend(data){
 	document.getElementById('commentfield').style.display = 'none';
 	document.getElementById('ratingfield').style.display = '';
 };
-	
 
+// Funktio, jota käytetään käyttäjän  lisäämään kuva käyttäjän koneelta
+// lisätään tietokantaan appendToBackend -funktiolla.
 function previewFile(){
        var preview = document.querySelector('img'); //selects the query named img
        var file    = document.querySelector('input[type=file]').files[0]; //sames as here

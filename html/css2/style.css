@@ -1,14 +1,15 @@
 body {
-    text-align: center;
     background-color: #FF8484;
+    text-align: center;
 }
 
-.container2 {
+/* Bootstrapin container-luokan lisamaarittelyja */
+.container {
     background-color: #FFD7D7 !important;
-    width: 70%;
+    width: 85%;
     margin-top: 20px;
     border: 1px dashed deeppink;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -20,41 +21,46 @@ h1 {
    font-variant: small-caps;
 }
 
+h3 {
+   color: #CE6868 !important;
+   font-family: Arial,  Verdana, Sans-serif;
+   font-size: 1.2em;
+   margin-bottom: 0em;
+   text-align: left;
+   font-variant: small-caps;
+}
+
 hr {
-    color: #FD7171;
-    background-color: #FD7171;
+    border: 0;
     height: 1px;
-    width: 40%;
+    background: #FF8484;
+    background-image: linear-gradient(to right, #FFD7D7, #FF8484, #FFD7D7);
+    width: 60%;
 }
 
 #valiviiva {
-    margin-top: -10px;
-    color: #FD7171;
-    background-color: #FD7171;
-    height: 1px;
+    background-image: linear-gradient(to right, #FFBEBE, #FF8484, #FFBEBE);
     width: 80%;
 }
 
+/* Navtabin maarittelyja */
 #everything {
     width: 80%;
     margin: auto;
     margin-bottom: 50px;
 }
 
-.tab-content {
-}
-
 #myTab {
 	border-color:#CE6868;
 }
 
-#myTab li a {
+#myTab li a {  /* navin linkki */
 	color: #FFCCCC;
 	border-color: #CE6868;
 	background-color:#CE6868;
 }
 
-#myTab li.active a {
+#myTab li.active a {  /* aktiivisena oleva navin linkki */
 	color: #8A4A4A;
 	border-bottom-color: transparent;
 	background-color:#FFBEBE;
@@ -94,9 +100,13 @@ p {
     margin-bottom: 50px;
     color: #8A4A4A;
 }
+/*MIKSI EI NÄYTÄ HYVÄLTÄ PUHELIMELLA:(*/
+#cat {
+    max-height: 100px;
+}
 
-#arvosana {
-    min-height: inherit;
+#bestPussies{
+    display:inline;
 }
 
 #catimage {
@@ -107,18 +117,26 @@ p {
     border: 1px solid #D15555;
     
 }
-
+/* submit-buttonin paikan maarittely */
 #addcat {
     position: fixed;
     top: 20px;
-    left: 10px;
     width: 100px;
+}
+
+#swipetext {
+    color: #8A4A4A;
+    font-variant: small-caps;
+    text-align: right;
+    position: relative;
+    left: 0.8em;
 }
 
 .navbar{ 
     background-image: none;
 }
 
+/* Tahdiston koodi: http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ */
 div.stars {
   display: inline-block;
 }

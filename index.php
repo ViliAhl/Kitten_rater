@@ -1,12 +1,12 @@
 <?php
 
-
-function createDB(){
-    $m = new MongoClient();
-   $db = $m->kitten_rater;
-   $collection = $db->Kissat;
-   return $collection;
-}
+#Create database function
+	function createDB(){
+    	$m = new MongoClient();
+		$db = $m->kitten_rater;
+   		$collection = $db->Kissat;
+   		return $collection;
+	}
 		       
 # URI parser helper functions
 # ---------------------------
@@ -23,23 +23,6 @@ function createDB(){
         return $resource;
     }
 
-    function getParameters() {
-        # returns an associative array containing the parameters
-        $resource = $_SERVER['REQUEST_URI'];
-        $param_string = "";
-        $param_array = array();
-        if (strstr($resource, '?')) {
-            # URI has parameters
-            $param_string = substr($resource, strpos($resource, '?')+1);
-            $parameters = explode('&', $param_string);                      
-            foreach ($parameters as $single_parameter) {
-                $param_name = substr($single_parameter, 0, strpos($single_parameter, '='));
-                $param_value = substr($single_parameter, strpos($single_parameter, '=')+1);
-                $param_array[$param_name] = $param_value;
-            }
-        }
-        return $param_array;
-    }
 
     function getMethod() {
         # returns a string containing the HTTP method
@@ -64,31 +47,8 @@ function createDB(){
 		
 		$collection = createDB();
 		$newcomment = array('$push' => array('comments' => array('nick'=> $nick, 'comment' => $comment)));
-		$collection->update(array("ID" => $cat_id), $newcomment);
-		
-		
-		
-		
+		$collection->update(array("ID" => $cat_id), $newcomment);	
 	}
-	
-	function postName() {
-		# implements POST method for comment
-		# Example: POST /kitten_rater/cat/name/?id=13&name=Teppo
-		$cat_id = (int) $_POST["id"];
-		
-		
-		//$comment=mysql_real_escape_string($comment);
-		
-		
-		$collection = createDB();
-		$newname = array('$push' => array('name' => $name));
-		$collection->update(array("ID" => $cat_id), $newname);
-		
-		
-		
-		
-	}
-	
 	
 	function postStar() {
 		# implements POST method for stars
@@ -103,14 +63,24 @@ function createDB(){
 		
 		$newrating = array('$inc' => array('rates' => 1));
 		$collection->update(array("ID" => $cat_id), $newrating);
-	
+		countAvg($cat_id);
 
 	}
-	/*function getCats() {
-		# implements GET method for persons (collection)
-		# Example: GET /staffapi/persons
-		echo "Getting list of persons";
-	}*/
+	function getCats() {
+		# implements GET method for cats (collection)
+		# Example: GET /kitten_rater/cats
+		$collection = createDB();
+		$cursor = $collection->find()->sort(array("avg"=>-1))->limit(3);
+		$bestkittens= array(); 
+		foreach($cursor as $kitten) {
+			$id = $kitten['ID'];
+			$avg = $kitten['avg'];
+			$bestkittens[] = array("ID"=>$id, "avg"=>$avg);
+		}
+    		echo json_encode($bestkittens);
+		}
+		
+	
 	
 	function getCat() {
 	    # implements GET method for cat
@@ -153,13 +123,22 @@ function createDB(){
 		  $collection->remove(array("ID"=>$id),false);
 
 	}
+#Helpper handler function
+function countAvg($id){
+	$collection = createDB();
+	$cat = $collection->findOne(array('ID' => $id),array("_id"=>0));
+	$avg = $cat['stars']/$cat['rates'];
+	
+	$collection->update(array("ID" => $id),array('$set'=>array("avg"=>$avg)));
+	//echo json_encode($cat);
+}
 
 # Main
 # ----
 
 	$resource = getResource();
     $request_method = getMethod();
-    //$parameters = getParameters();
+    
 
     # Redirect to appropriate handlers.
 	if ($resource[0]=="kitten_rater") {
@@ -176,6 +155,9 @@ function createDB(){
     	}
     	else if ($request_method=="GET" && $resource[1]=="cat") {
     	    getCat();
+    	}
+    	else if ($request_method=="GET" && $resource[1]=="cats") {
+    	    getCats();
     	}
 		else if ($request_method=="GET" && $resource[1]=="newcat") {
 			getNewCat();
