@@ -2,6 +2,10 @@ window.onload = lataus;
 
 var rootURL = "https://kitten-rater-vilperi.c9users.io/kitten_rater"
 var cat;
+/**
+ * Lisää eventlistenerit kuvian arvostelutähtiin.
+ * Lisää keypress eventlistenerin, jolla enteriä painamalla lähetetään kirjoitettu kommentti.
+ */
 document.getElementById("star-5").addEventListener("click", function() {arvostele("5");});
 document.getElementById("star-4").addEventListener("click", function() {arvostele("4");});
 document.getElementById("star-3").addEventListener("click", function() {arvostele("3");});
@@ -22,8 +26,10 @@ document.getElementById("commentfield").addEventListener('keypress', function (e
     }
 }
 });
-// Asetetaan elementit haluttuun tilaan sivu avattaessa tai uudelleen ladattaessa
-// Kutsutaan window.onloadissa
+/** 
+ * Asetetaan elementit haluttuun tilaan sivu avattaessa tai uudelleen ladattaessa. 
+ Kutsutaan window.onloadissa
+ */
 function lataus(){
     document.getElementById('everything').style.display = 'none';
 	document.getElementById('commentfield').style.display = '';
@@ -33,10 +39,12 @@ function lataus(){
 	getNewCat();
 	getBestCats();
 }
-// Asettaa sivun haluttuun tilaan käyttäjän pyyhkäistäessä
-// tai nuolinäppäimellä uuteen kuvaan siirtyessä
-// Asettaa arvostelutähdet nollaan, sekä kommentit/rating laatikon piiloon
-// Hakee uuden kissan
+/** 
+ * Asettaa sivun haluttuun tilaan käyttäjän pyyhkäistäessä
+    tai nuolinäppäimellä uuteen kuvaan siirtyessä. 
+    Asettaa arvostelutähdet nollaan, sekä kommentit/rating laatikon piiloon. 
+ Hakee uuden kissan.
+ */
 function swipeload(){
 	$("#star-5").prop("disabled",false);
  	$("#star-4").prop("disabled",false);
@@ -53,7 +61,8 @@ function swipeload(){
 }
 //EEBENPUU
 
-// Mahdollistaa kissojen selauksen vasemmalla ja oikealla nuolinäppäimellä
+/** Mahdollistaa kissojen selauksen vasemmalla ja oikealla nuolinäppäimellä
+  */
 $(document).keydown(function(e) {
     switch(e.which) {
        case 37: // left
@@ -76,19 +85,18 @@ $(document).keydown(function(e) {
 
         default: return; // exit this handler for other keys
     }
-   // e.preventDefault(); // prevent the default action (scroll / move caret)
 });
-// Pyyhkäisyn käyttö uuden kissakuvan lataamiseksi
+/** Pyyhkäisyn käyttö uuden kissakuvan lataamiseksi
+*/
 var element = document.getElementById("catimage");
 var mc = Hammer(element).on("swipeleft", function() {
     swipeload();
 });
 
-
-
-
-// Lähettää ajaxin avulla tiedon PHP:lle, joka hakee tiedon tietokannasta
-// Palauttaa kissan ID:n mukaan
+/** 
+ * Lähettää ajaxin avulla tiedon PHP:lle, joka hakee tiedon tietokannasta. 
+ * Palauttaa kissan ID:n mukaan
+*/
 function getCatById() {
     $.ajax({
         type: 'GET',
@@ -99,15 +107,16 @@ function getCatById() {
         success: function(data){
           	cat = data;
           	$("#ratingfield").html("The average rating for this cute pussy is: " + cat.avg + " stars!");
-			//$("#comments").html(cat.comments);
-		//document.getElementById("comments").innerHTML = cat.comments;
-		//document.getElementById("comments").innerHTML = cat.comments;
 		parseComments(cat);
-
+            
         }
+        
     });
+    
 }
-
+/**
+ * Hakee viikon viiden parhaan kissan arvostelut ja lisätään ne sivulle
+ */
 function getBestCats() {
     $.ajax({
         type: 'GET',
@@ -117,10 +126,11 @@ function getBestCats() {
         success: function(data){
           	var cats = data;
           	for(var i =0;i<cats.length;i++){
-          	    //SAA TEHDÄ KAUNIIMMAKSI
-          	    $("#bestPussies").append('<div id="'+i+'" class="col-lg-2"></div>');
-          	    $("#"+i).prepend('<img id="cat" src=../../Cats/' + cats[i].ID + '.jpg />');
-          	    $("#"+i).append("<p>"+cats[i].avg +"</p>")
+          	    $("#bestPussies").append('<div id="'+i+'" class="col-md-2"></div>');
+          	    $("#"+i).append('<div class="row">');
+          	    $("#"+i).append('<img id="cat" class="img-responsive" src="../../Cats/' + cats[i].ID + '.jpg"/>');
+          	    $("#"+i).append('<p class="prating">' + cats[i].avg + '/5 stars</p>');
+          	    $("#"+i).append('</div>');
           	}
 
         },
@@ -129,11 +139,9 @@ function getBestCats() {
         }
     });
 }
-/*$(".#cat").hover(function() {
-    
-});*/
 
-// Hakeetietokannasta satunnaisen uuden kissan
+/** Hakee tietokannasta satunnaisen uuden kissan
+*/
 function getNewCat() {
     $.ajax({
         type: 'GET',
@@ -153,7 +161,10 @@ function getNewCat() {
         }
     });
 }
-// Hakee tietokannasta nimimerkin ja sillä annetun kommentin
+/** 
+ * Hakee tietokannasta nimimerkin ja sillä annetun kommentin
+ * @param {string} kitty = kaikki kissan tiedot (kommentit, rating, id) json muodossa
+*/
 function parseComments(kitty){
 	var row, rows;
 	if (kitty.comments === undefined) {
@@ -169,8 +180,11 @@ function parseComments(kitty){
 	}
 	
 }
-// Tähtiä antaessa paljastaa käyttäjälle kommenttikentän
-// Hakee tiedot kissalle getCatById:n kautta
+/** 
+ * Tähtiä antaessa paljastaa käyttäjälle kommenttikentän. 
+ * Hakee tiedot kissalle getCatById:n kautta.
+ * @param {int} a = tähtien määrä
+*/
 function arvostele(a) {
  	 document.getElementById('everything').style.display = '';
  	$("#star-5").prop("disabled",true);
@@ -193,9 +207,10 @@ function arvostele(a) {
         }
     });
 }
-// Käyttäjän kirjoittama kommentti tallennetaan tietokantaan ja sille päivitetään tiedot
+/** Käyttäjän kirjoittama kommentti tallennetaan tietokantaan ja sille päivitetään tiedot
+*/
 function comment(){
-       if (document.getElementById("kommentti").value != "" && document.getElementById("nimi").value != ""){
+    if (document.getElementById("kommentti").value != "" && document.getElementById("nimi").value != ""){
 	var kom = document.getElementById('kommentti').value;
 	document.getElementById('kommentti').value = '';
 	var nimi = document.getElementById('nimi').value;
@@ -220,7 +235,9 @@ function comment(){
 };
 	
 
-// Ajaxilla lähetetään käyttäjän lisäämä kuva tietokantaan
+/** Ajaxilla lähetetään käyttäjän lisäämä kuva tietokantaan
+ * @param {string} data = käyttäjän lataaman kuvan tiedot 
+*/
 function appendToBackend(data){
 	$.ajax({
 		type: 'POST',
@@ -235,7 +252,8 @@ function appendToBackend(data){
 
 
 
-// Kommentti- ja ratingkenttien näykyvyys ja liikkuminen niiden välillä.
+/** Kommentti- ja ratingkenttien näykyvyys ja liikkuminen niiden välillä.
+*/
 
     document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	document.getElementById('commentfield').style.display = '';
@@ -247,8 +265,9 @@ function appendToBackend(data){
 	document.getElementById('ratingfield').style.display = '';
 };
 
-// Funktio, jota käytetään käyttäjän  lisäämään kuva käyttäjän koneelta
-// lisätään tietokantaan appendToBackend -funktiolla.
+/** Funktio, jolla käyttäjän lataama kuva haetaan käyttäjän koneelta ja
+    lisätään tietokantaan appendToBackend -funktiolla.
+*/
 function previewFile(){
        var preview = document.querySelector('img'); //selects the query named img
        var file    = document.querySelector('input[type=file]').files[0]; //sames as here

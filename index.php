@@ -70,7 +70,7 @@
 		# implements GET method for cats (collection)
 		# Example: GET /kitten_rater/cats
 		$collection = createDB();
-		$cursor = $collection->find()->sort(array("avg"=>-1))->limit(3);
+		$cursor = $collection->find()->sort(array("avg"=>-1))->limit(5);
 		$bestkittens= array(); 
 		foreach($cursor as $kitten) {
 			$id = $kitten['ID'];

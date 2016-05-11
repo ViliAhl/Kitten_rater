@@ -25,7 +25,7 @@ h3 {
    color: #CE6868 !important;
    font-family: Arial,  Verdana, Sans-serif;
    font-size: 1.2em;
-   margin-bottom: 0em;
+   margin-bottom: 1em;
    text-align: left;
    font-variant: small-caps;
 }
@@ -93,6 +93,7 @@ p {
 #comments {
     margin: 20px;
     color: #8A4A4A;
+    text-align: left;
 }
 
 #ratingfield {
@@ -100,13 +101,20 @@ p {
     margin-bottom: 50px;
     color: #8A4A4A;
 }
-/*MIKSI EI NÄYTÄ HYVÄLTÄ PUHELIMELLA:(*/
+
 #cat {
     max-height: 100px;
+    border: 1px solid #D15555;
 }
 
 #bestPussies{
-    display:inline;
+    width: 60%;
+    margin: auto;
+}
+
+.prating {
+    margin: 0px 0px 10px 0px;
+    text-align: left;
 }
 
 #catimage {
