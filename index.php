@@ -112,7 +112,7 @@
 		/*    $url =  "https://kitten-rater-vilperi.c9users.io/php/" .
         urlencode($_GET['Cat']).;
    
-  $hkijson = file_get_contents($hki_url);
+  $hkijson = file_get_contents($hki_url)
 		echo "Getting person: ".$id;*/
 	}
 
